@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CasTLive – Ultra Cosmic Master Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      overflow: hidden; /* Prevent body scroll when main content scrolls */
+    }
+    .text-glow {
+      text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+    }
+    .box-glow {
+        box-shadow: 0 0 15px 2px currentColor;
+    }
+    .comet-trail {
+      position: absolute;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(0, 191, 255, 0.3) 50%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      animation: fade-out 500ms forwards;
+    }
+    /* All keyframes from components centralized here */
+    @keyframes fade-out {
+      from { opacity: 1; }
+      to { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    }
+    @keyframes move-twink-back {
+      from { background-position: 0 0; }
+      to { background-position: -10000px 5000px; }
+    }
+    @keyframes nebula-pulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.1); opacity: 0.6; }
+    }
+    @keyframes ripple {
+      to { transform: scale(4); opacity: 0; }
+    }
+    @keyframes slow-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slide-in-left {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(0); }
+    }
+    @keyframes shooting-star {
+        0% { transform: translateX(150vw) translateY(-50vh) rotate(225deg); opacity: 1; }
+        100% { transform: translateX(-50vw) translateY(100vh) rotate(225deg); opacity: 0; }
+    }
+    @keyframes aurora-flow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    @keyframes fade-in-up {
+        from { opacity: 0; transform: translateY(50px) translateX(-50%); }
+        to { opacity: 1; transform: translateY(0) translateX(-50%); }
+    }
+     @keyframes particle-ribbon-flow {
+        0% { background-position: 0% 0%; }
+        100% { background-position: 0% 300%; }
+    }
+    @keyframes particle-float {
+        0%, 100% { transform: translateY(0); opacity: 0.7; }
+        50% { transform: translateY(-100px); opacity: 0; }
+    }
+    @keyframes pulse-glow {
+        0%, 100% { filter: drop-shadow(0 0 10px currentColor); }
+        50% { filter: drop-shadow(0 0 20px currentColor); }
+    }
+    @keyframes profile-aurora-particles {
+        from { transform: translateY(100%) rotate(0deg); opacity: 1; }
+        to { transform: translateY(-100%) rotate(360deg); opacity: 0; }
+    }
+    @keyframes particle-avatar-ripple {
+        from { transform: scale(0); opacity: 1; }
+        to { transform: scale(2); opacity: 0; }
+    }
+    @keyframes vip-halo-pulse {
+        0%, 100% { box-shadow: 0 0 10px 2px currentColor, inset 0 0 5px 1px currentColor; opacity: 0.7; }
+        50% { box-shadow: 0 0 20px 5px currentColor, inset 0 0 10px 2px currentColor; opacity: 1; }
+    }
+    @keyframes aurora-pulse-button {
+        0%, 100% { box-shadow: 0 0 20px 3px var(--glow-color-1), inset 0 0 10px 2px var(--glow-color-1); }
+        50% { box-shadow: 0 0 35px 5px var(--glow-color-2), inset 0 0 15px 3px var(--glow-color-2); }
+    }
+    @keyframes aurora-particles-float {
+        0% { transform: translateY(0) translateX(0); opacity: 0; }
+        25% { opacity: 0.7; }
+        75% { opacity: 0.7; }
+        100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+    }
+    @keyframes badge-float {
+        0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+        50% { transform: translate(-50%, -50%) translateY(-15px); }
+    }
+    @keyframes sparkle-pop {
+        0% { transform: scale(0) rotate(0deg); opacity: 1; }
+        100% { transform: scale(1.5) rotate(360deg); opacity: 0; }
+    }
+    @keyframes aurora-trail-flow {
+        from { stroke-dashoffset: 1000; }
+        to { stroke-dashoffset: 0; }
+    }
+    @keyframes particle-trail {
+        from { transform: translateY(0) scale(1); opacity: 1; }
+        to { transform: translateY(-40px) scale(0); opacity: 0; }
+    }
+    @keyframes cosmic-ripple-effect {
+        from { transform: translate(-50%, -50%) scale(0); opacity: 0.8; border-width: 10px; }
+        to { transform: translate(-50%, -50%) scale(1.5); opacity: 0; border-width: 1px; }
+    }
+    @keyframes aurora-background-pan {
+	    0% { background-position: 0% 50% }
+	    50% { background-position: 100% 50% }
+	    100% { background-position: 0% 50% }
+    }
+     @keyframes particle-ripple {
+        from { transform: scale(0); opacity: 0.8; }
+        to { transform: scale(1) translate( calc(var(--dx, 0) * 40px), calc(var(--dy, 0) * 40px) ); opacity: 0; }
+    }
+    @keyframes bounce {
+        0%, 80%, 100% { transform: scale(0.5); opacity: 0.5; }
+        40% { transform: scale(1.0); opacity: 1; }
+    }
+    @keyframes sparkle {
+        0%, 70%, 100% { opacity: 0; }
+        40% { opacity: 1; }
+    }
+    @keyframes pulse-aura {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+    }
+     @keyframes control-ripple {
+        from { opacity: 1; transform: scale(0) translate(-50%, -50%); }
+        to { opacity: 0; transform: scale(3) translate(-50%, -50%); }
+    }
+    @keyframes save-button-pulse {
+        0%, 100% { box-shadow: 0 0 20px 3px var(--glow-color-1); border-color: var(--glow-color-1); }
+        50% { box-shadow: 0 0 35px 5px var(--glow-color-2); border-color: var(--glow-color-2); }
+    }
+    @keyframes preview-rotate {
+        from { transform: rotateY(-15deg) rotateX(5deg); }
+        to { transform: rotateY(15deg) rotateX(-5deg); }
+    }
+    @keyframes theme-ripple-effect {
+        from { opacity: 0.3; transform: scale(0); }
+        to { opacity: 0; transform: scale(1.5); }
+    }
+    @keyframes flair-ripple {
+        from { opacity: 1; transform: scale(0.8); }
+        to { opacity: 0; transform: scale(1.5); }
+    }
+    @keyframes vip-halo-breathing {
+        0%, 100% { box-shadow: 0 0 15px 2px currentColor; opacity: 0.8; }
+        50% { box-shadow: 0 0 30px 5px currentColor; opacity: 1; }
+    }
+    @keyframes floating-sparkles {
+        0%, 100% { opacity: 0; transform: rotate(0) translateX(60px); }
+        50% { opacity: 1; }
+    }
+    @keyframes orbital-path {
+        from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+        to { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+    }
+    @keyframes aurora-wave {
+        from { transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-80px) scale(0.8); opacity: 0.4; }
+        to { transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-100px) scale(1.2); opacity: 0.7; }
+    }
+    @keyframes aurora-overlay-effect {
+        0% { opacity: 0; transform: scale(1.2); }
+        50% { opacity: 0.4; transform: scale(1); }
+        100% { opacity: 0; transform: scale(1.2); }
+    }
+    @keyframes aurora-scroll-particle-fade {
+        from { opacity: 1; transform: scale(1); }
+        to { opacity: 0; transform: scale(0.5) translateY(-50px); }
+    }
+  </style>
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://aistudiocdn.com/react@^19.2.0",
+      "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+      "react/": "https://aistudiocdn.com/react@^19.2.0/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-gray-900">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
